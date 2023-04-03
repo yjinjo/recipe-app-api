@@ -63,7 +63,7 @@ class PublicRecipeAPITests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-class PrivateRecipeAPITests(TestCase):
+class PrivateRecipeApiTests(TestCase):
     """Test authenticated API requests."""
 
     def setUp(self):
@@ -290,7 +290,7 @@ class PrivateRecipeAPITests(TestCase):
         self.assertEqual(recipe.tags.count(), 0)
 
     def test_create_recipe_with_new_ingredients(self):
-        """Test creating a recipe with ne ingredients."""
+        """Test creating a recipe with new ingredients."""
         payload = {
             "title": "Cauliflower Tacos",
             "time_minutes": 60,
