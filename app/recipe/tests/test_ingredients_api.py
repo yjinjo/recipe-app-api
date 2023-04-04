@@ -97,8 +97,8 @@ class PrivateIngredientsApiTests(TestCase):
         res = self.client.delete(url)
 
         self.assertEqual(res.status_code, status.HTTP_204_NO_CONTENT)
-        ingredient = Ingredient.objects.filter(user=self.user)
-        self.assertFalse(ingredient.exists())
+        ingredients = Ingredient.objects.filter(user=self.user)
+        self.assertFalse(ingredients.exists())
 
     def test_filter_ingredients_assigned_to_recipes(self):
         """Test listing ingredients by those assigned to recipes."""
