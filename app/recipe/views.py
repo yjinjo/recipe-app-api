@@ -31,7 +31,7 @@ from recipe import serializers
             OpenApiParameter(
                 "tags",
                 OpenApiTypes.STR,
-                description="Comma separated list of IDs to filter",
+                description="Comma separated list of tag to filter",
             ),
             OpenApiParameter(
                 "ingredients",
@@ -127,7 +127,7 @@ class BaseRecipeAttrViewSet(
         assigned_only = bool(int(self.request.query_params.get("assigned_only", 0)))
         queryset = self.queryset
         if assigned_only:
-            queryset = queryset.filter(recipe__insnull=False)
+            queryset = queryset.filter(recipe__isnull=False)
 
         return (
             queryset.filter(
